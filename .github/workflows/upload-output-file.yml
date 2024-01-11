@@ -1,5 +1,5 @@
 name: upload-artifact-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: Uploading artifacts Actions
 on: [push]
 jobs:
   example-job:
