@@ -8,7 +8,6 @@ jobs:
     defaults:
       run:
         working-directory: ./scripts
-        shell: bash
     steps:
       - uses: actions/checkout@v4
       # - uses: actions/setup-node@v3
