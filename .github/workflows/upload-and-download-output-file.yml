@@ -2,7 +2,7 @@ name: upload-artifact-actions
 run-name: Uploading artifacts Actions
 on: [push]
 jobs:
-  example-job:
+  upload-job:
     name: Save output
     runs-on: ubuntu-latest
     steps:
@@ -14,3 +14,15 @@ jobs:
         with:
           name: output-log-file
           path: output.log
+
+  download-job:
+    name: Download output
+    needs: upload-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file
+      - name: print log file
+        run: cat output.log
