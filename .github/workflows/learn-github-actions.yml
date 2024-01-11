@@ -4,6 +4,9 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./scripts
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
@@ -11,4 +14,7 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
-
+      - name: Run a script
+        run: ./my-script.sh
+      - name: Run another script
+        run: ./my-other-script.sh
