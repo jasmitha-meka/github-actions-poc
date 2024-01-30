@@ -35,5 +35,6 @@ jobs:
             apt-get update
             apt-get install -y wget
             wget https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.8.3/apache-zookeeper-3.8.3-bin.tar.gz
-            tar -zxvf ./apache-zookeeper-3.8.3-bin.tar.gz
-            ./apache-zookeeper-3.8.3-bin/bin/zkCli.sh -server zookeeper:2181
+            file apache-zookeeper-3.8.3-bin.tar.gz
+            #tar -zxvf apache-zookeeper-3.8.3-bin.tar.gz
+            #./apache-zookeeper-3.8.3-bin/bin/zkCli.sh -server zookeeper:2181
