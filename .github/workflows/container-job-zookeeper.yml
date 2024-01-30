@@ -33,7 +33,7 @@ jobs:
         - name: Install wget and test
           run: |
             apt-get update
-            apt-get install -y wget
+            apt-get install -y wget file
             wget https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.8.3/apache-zookeeper-3.8.3-bin.tar.gz
             file apache-zookeeper-3.8.3-bin.tar.gz
             #tar -zxvf apache-zookeeper-3.8.3-bin.tar.gz
