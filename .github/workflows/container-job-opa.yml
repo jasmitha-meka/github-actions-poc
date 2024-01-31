@@ -15,6 +15,7 @@ jobs:
       opa:
           image: openpolicyagent/opa:0.20.5-debug
           options: >- 
+             run
              --server 
 
     steps:
