@@ -14,6 +14,9 @@ jobs:
       # Label used to access the service container
       opa:
           image: openpolicyagent/opa:0.20.5-debug
+          options: >-
+           --server
+           --log-level=debug
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
