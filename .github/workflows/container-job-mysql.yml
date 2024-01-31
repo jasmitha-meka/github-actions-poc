@@ -24,16 +24,11 @@ jobs:
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
-      #- name: Check out repository code
-      #  uses: actions/checkout@v3
+      - name: Check out repository code
+        uses: actions/checkout@v3
 
-      # Performs a clean installation of all dependencies in the `package.json` file
-      # For more information, see https://docs.npmjs.com/cli/ci.html
-      #- name: Install dependencies
-      #  run: npm ci
-
-        - name: Install wget and test
-          run: |
+      - name: Install wget and test
+        run: |
              apt-get update
              apt-get install -y python3  python3-pip
              pip3 install mysql-connector-python
