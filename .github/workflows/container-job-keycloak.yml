@@ -3,7 +3,7 @@ on: push
 
 jobs:
   # Label of the container job
-  container-job-nginx:
+  container-job-keycloak:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
@@ -12,9 +12,13 @@ jobs:
     # Service containers to run with `container-job`
     services:
       # Label used to access the service container
-      nginx:
+      keycloak:
         # Docker Hub image
-        image: nginx
+        image: jboss/keycloak
+        env:
+          KEYCLOAK_USER: admin
+          KEYCLOAK_PASSWORD: admin
+          DB_VENDOR: h2
         # Set health checks to wait until redis has started
 
     steps:
@@ -31,4 +35,4 @@ jobs:
           run: |
             apt-get update
             apt-get install -y curl
-            curl nginx:80
+            curl keycloak:8080
