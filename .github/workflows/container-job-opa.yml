@@ -10,7 +10,7 @@ jobs:
       opa:
           image: openpolicyagent/opa:0.20.5-debug
           options: |
-|           --name opa-container
+            --name opa-container
             --server
             --log-level debug
 
