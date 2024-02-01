@@ -10,8 +10,7 @@ jobs:
       opa:
           image: openpolicyagent/opa:0.20.5-debug
           options: |
-            --server
-            --log-level debug
+            --cmd run --server --log-level debug 
 
     steps:
         - name: Install curl
