@@ -20,6 +20,14 @@ jobs:
            KAFKA_OPTS: "-Dzookeeper.admin.enableServer=false"
         # Set health checks to wait until redis has started
 
+      kafka:
+        image: confluentinc/cp-kafka:7.2.0
+        env:
+          KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+          KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+          KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+          KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
     steps:
       # Downloads a copy of the code in your repository before running CI tests
       #- name: Check out repository code
@@ -30,7 +38,7 @@ jobs:
       #- name: Install dependencies
       #  run: npm ci
 
-        - name: Install wget and test
+        - name: Test Zookeeper
           run: |
             #apk add wget
             apt-get update
@@ -38,3 +46,10 @@ jobs:
             wget https://dlcdn.apache.org/zookeeper/zookeeper-3.8.3/apache-zookeeper-3.8.3-bin.tar.gz
             tar -zxvf apache-zookeeper-3.8.3-bin.tar.gz
             ./apache-zookeeper-3.8.3-bin/bin/zkCli.sh -server zookeeper:2181
+
+        - name: Test kafka
+          run: |
+             apt-get update
+             apt-get install -y python3  python3-pip
+             pip3 install confluent_kafka
+             python3 kafka-connect.py         
