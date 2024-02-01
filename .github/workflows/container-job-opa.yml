@@ -8,14 +8,11 @@ jobs:
 
     services:
       opa:
-          image: openpolicyagent/opa:0.20.5-debug
-          options: |
-            --cmd run --server --log-level debug 
+          image: jasmitha/opa:0.20.5-debug
 
     steps:
         - name: Install curl
           run: |
             apt-get update
             apt-get install -y curl
-            sleep 60
-            curl -i opa:8181
+            curl -i opa:8181/v1/data 
