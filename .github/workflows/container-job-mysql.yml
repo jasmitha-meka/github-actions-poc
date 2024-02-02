@@ -21,6 +21,7 @@ jobs:
            MYSQL_USER: "test"
            MYSQL_PASSWORD: "test"
         # Set health checks to wait until redis has started
+        options: --log-bin-trust-function-creators=0
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
