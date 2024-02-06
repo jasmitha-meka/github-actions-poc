@@ -6,7 +6,7 @@ jobs:
       - id: sets-a-secret
         name: Generate, mask, and output a secret
         run: |
-          echo "secret-number=abc" >> "$GITHUB_OUTPUT"
+          echo "secret-number=plaintext://kafka_service:9092" >> "$GITHUB_OUTPUT"
       - name: Use that secret output (protected by a mask)
         run: |
           echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
