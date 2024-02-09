@@ -1,0 +1,19 @@
+name: Nginx docker container example
+on: push
+
+jobs:
+  container-job-nginx:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu
+      volumes:
+        - /run/docker/docker.sock:/run/docker/docker.sock
+      env:
+        DOCKER_HOST: unix:///run/docker/docker.sock
+
+    steps:
+
+        - name: Install curl
+          run: |
+            apt-get update
+            apt-get install -y curl
