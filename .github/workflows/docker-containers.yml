@@ -9,7 +9,7 @@ jobs:
       volumes:
         - /run/docker/docker.sock:/run/docker/docker.sock
       env:
-        DOCKER_HOST: unix:///run/docker/docker.sock
+        DOCKER_HOST: unix:///var/run/docker.sock
 
     steps:
 
