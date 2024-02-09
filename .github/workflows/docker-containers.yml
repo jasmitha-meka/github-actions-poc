@@ -16,5 +16,6 @@ jobs:
         - name: Install curl
           run: |
             apt-get update
-            apt-get install -y curl l docker.io
+            apt-get install -y curl docker.io
+            ocker network ls
             docker network ls  --filter name=github_network_ --format '{{.Name}}'
