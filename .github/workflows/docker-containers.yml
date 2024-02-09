@@ -17,8 +17,7 @@ jobs:
           run: |
             apt-get update
             apt-get install -y curl docker.io
-            NETWORK=$(docker network ls  --filter name=github_network_ --format '{{.Name}}')
-            echo $NETWORK
+            echo "NETWORK=$(docker network ls  --filter name=github_network_ --format '{{.Name}}')" >> GITHUB_ENV
 
         - name: Run SSL Proxy container
           run: |
