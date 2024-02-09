@@ -13,9 +13,19 @@ jobs:
 
     steps:
 
-        - name: Install curl
+        - name: Get Network
           run: |
             apt-get update
             apt-get install -y curl docker.io
-            docker network ls
-            docker network ls  --filter name=github_network_ --format '{{.Name}}'
+            NETWORK=$(docker network ls  --filter name=github_network_ --format '{{.Name}}')
+
+        - name: Run SSL Proxy container
+          run: |
+            docker run -p 443:443 -e TARGET_PORT=80 -e TARGET_HOST=api.kanye.rest -e SSL_PORT=443  -d fsouza/docker-ssl-proxy
+
+        - name: Test SSL Proxy
+          run: |
+            sleep 30
+            curl https://localhost:443 -k
+
+
