@@ -29,6 +29,7 @@ jobs:
             sleep 30
             docker ps
             docker inspect ssl-proxy
-            ping ssl-proxy
+            ping -c 10 ssl-proxy
+            curl https://ssl-proxy:443 -k
             curl https://localhost:443 -k
 
