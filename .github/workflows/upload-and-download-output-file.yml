@@ -27,6 +27,6 @@ jobs:
           name: output-log-file
       - name: print log file
         run: |
-        pwd
-        ls
-        cat target/reports.txt
+           pwd
+           ls
+           cat target/reports.txt
