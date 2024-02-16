@@ -25,9 +25,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
-          path: target
+          path: target/reports/
       - name: print log file
         run: |
            pwd
            ls
-           cat target/reports.txt
+           cat target/reports/reports.txt
