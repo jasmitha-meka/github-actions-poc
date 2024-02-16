@@ -1,0 +1,29 @@
+name: upload-artifact-actions
+run-name: Uploading artifacts Actions
+on: [push]
+jobs:
+  upload-job:
+    name: Save output
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          mkdir target
+          expr 1 + 1 > target/reports.txt
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file
+          path: target/reports.txt
+
+  download-job:
+    name: Download output
+    needs: upload-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file
+      - name: print log file
+        run: cat target/reports.txt
