@@ -32,3 +32,4 @@ jobs:
            ls
            cd target
            ls
+           cat target/reports.json
