@@ -8,12 +8,13 @@ jobs:
     steps:
       - shell: bash
         run: |
-          expr 1 + 1 > output.log
+          mkdir target
+          expr 1 + 1 > target/reports.txt
       - name: Upload output file
         uses: actions/upload-artifact@v3
         with:
           name: output-log-file
-          path: output.log
+          path: target/reports.txt
 
   download-job:
     name: Download output
@@ -23,6 +24,9 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: output-log-file
+          name: output-log-file-1
+          path: target/reports/
       - name: print log file
-        run: cat output.log
+        run: |
+           pwd
+           ls
