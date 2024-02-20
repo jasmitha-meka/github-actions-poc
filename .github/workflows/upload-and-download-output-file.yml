@@ -29,7 +29,4 @@ jobs:
       - name: print log file
         run: |
            pwd
-           ls
-           cd target
-           ls
            cat target/reports.json
