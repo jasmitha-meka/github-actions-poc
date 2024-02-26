@@ -24,7 +24,7 @@ jobs:
 #      run: mvn help:evaluate -Dexpression=settings.localRepository
 
     - name: maven compile
-      run: mvn compile
+      run: mvn install
 
   install:
     runs-on: ubuntu-latest
