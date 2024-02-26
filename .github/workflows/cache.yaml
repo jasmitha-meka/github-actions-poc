@@ -26,6 +26,8 @@ jobs:
 
     - name: maven compile
       run: mvn compile
-  
+
+  install:
+    steps: 
     - name: maven install
       run: mvn install
