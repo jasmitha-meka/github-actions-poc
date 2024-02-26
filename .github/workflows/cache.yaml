@@ -28,7 +28,7 @@ jobs:
 
   install:
     runs-on: ubuntu-latest
-
+    needs: [build]
     container:
       image: maven    
     steps: 
