@@ -44,4 +44,4 @@ jobs:
 
 
     - name: maven install
-      run: mvn install
+      run: mvn compile
