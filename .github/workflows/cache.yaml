@@ -23,11 +23,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: maven version
-      run: mvn help:evaluate -Dexpression=settings.localRepository
+#    - name: maven version
+#      run: mvn help:evaluate -Dexpression=settings.localRepository
 
-    - name: maven compile
-      run: mvn compile
+#    - name: maven compile
+#      run: mvn compile
 
 #    - name: maven install
 #      run: mvn install
