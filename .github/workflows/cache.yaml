@@ -28,6 +28,10 @@ jobs:
       run: mvn compile
 
   install:
+    runs-on: ubuntu-latest
+
+    container:
+      image: maven    
     steps: 
     - name: maven install
       run: mvn install
