@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: path check
-      run: ls -a /root/.m2/
+      run: ls -a /root/
 
     - name: Cache local Maven repository
       uses: actions/cache@v3
