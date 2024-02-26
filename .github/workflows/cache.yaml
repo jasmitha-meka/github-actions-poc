@@ -33,5 +33,7 @@ jobs:
     container:
       image: maven    
     steps: 
+    - uses: actions/checkout@v3
+
     - name: maven install
       run: mvn install
