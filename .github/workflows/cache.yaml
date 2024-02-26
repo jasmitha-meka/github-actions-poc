@@ -24,7 +24,7 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: maven version
-      run: mvn -v
+      run: mvn help:evaluate -Dexpression=settings.localRepository
 
     - name: maven compile
       run: mvn compile
