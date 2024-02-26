@@ -12,13 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: path check
-      run: ls -a /root/
-
     - name: Cache local Maven repository
       uses: actions/cache@v3
       with:
-        path: /root/.m2/
+        path: ~/.m2/
         key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
