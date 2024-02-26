@@ -11,6 +11,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: path check
+      run: ls -a ~/.m2/repository
 
     - name: Cache local Maven repository
       uses: actions/cache@v3
@@ -23,8 +26,8 @@ jobs:
     - name: maven version
       run: mvn -v
 
-    - name: maven version
+    - name: maven compile
       run: mvn compile
 
-    - name: maven version
-      run: mvn install
+#    - name: maven install
+#      run: mvn install
