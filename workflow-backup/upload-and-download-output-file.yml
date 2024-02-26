@@ -9,12 +9,12 @@ jobs:
       - shell: bash
         run: |
           mkdir target
-          expr 1 + 1 > target/reports.txt
+          expr 1 + 1 > target/reports.json
       - name: Upload output file
         uses: actions/upload-artifact@v3
         with:
           name: output-log-file
-          path: target/reports.txt
+          path: target/reports.json
 
   download-job:
     name: Download output
@@ -24,9 +24,9 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: output-log-file-1
-          path: target/reports/
+          name: output-log-file
+          path: target
       - name: print log file
         run: |
            pwd
-           ls
+           cat target/reports.json
