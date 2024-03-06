@@ -1,0 +1,22 @@
+name: Redis container example
+on: push
+
+jobs:
+  # Label of the container job
+    runs-on: ubuntu-latest
+    # Docker Hub image that `container-job` executes in
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+            curl -s -L https://github.com/trufflesecurity/trufflehog/releases/download/v3.63.4/trufflehog_3.63.4_linux_amd64.tar.gz -o trufflehog_3.63.4_linux_amd64.tar.gz
+            tar -xvf trufflehog_3.63.4_linux_amd64.tar.gz trufflehog
+            mv trufflehog /usr/local/bin/trufflehog
+            trufflehog --version
+
+      - name: Command
+        run: trufflehog --no-update --no-verification --json git --max-depth=15000 --branch main file://.
+
