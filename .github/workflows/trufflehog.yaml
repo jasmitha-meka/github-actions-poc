@@ -1,7 +1,9 @@
 name: Redis container example
 on: push
 
+
 jobs:
+  job1:
   # Label of the container job
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
