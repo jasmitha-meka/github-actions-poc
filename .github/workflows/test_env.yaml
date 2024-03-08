@@ -1,0 +1,17 @@
+name: Redis container example
+on: push
+
+
+jobs:
+  job1:
+  # Label of the container job
+    runs-on: ubuntu-latest
+    # Docker Hub image that `container-job` executes in
+
+    steps:
+      - name: Install dependencies
+        run: echo "test_env=/runner/_work/afm-lambda-functions/afm-lambda-functions/lambda_deployment_packages/lambda_deployment_packages/metadata/metadata.json" >> $GITHUB_ENV
+
+      - name: Command
+        run: echo ${{ env.test_env }}
+
