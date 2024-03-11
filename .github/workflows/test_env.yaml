@@ -9,5 +9,7 @@ jobs:
     steps:
       - name: Command
         run: |
+         pwd
+         echo ${{ github.workspace }}
          echo 1234
 
