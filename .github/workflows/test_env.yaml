@@ -8,8 +8,10 @@ jobs:
       image: node:18
     steps:
       - name: Command
+	env:
+	  GHA_PATH: '${{ github.workspace }}'
         run: |
          pwd
-         echo ${{ github.workspace }}
+         echo $GHA_PATH
          echo 1234
 
