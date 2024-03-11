@@ -8,7 +8,7 @@ jobs:
       image: ubuntu
     services:
       test:
-        image: ubuntu 
+        image: null
     steps:
       - name: Command
         run: |
