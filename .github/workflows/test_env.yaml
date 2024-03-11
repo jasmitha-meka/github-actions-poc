@@ -3,14 +3,14 @@ on: push
 
 jobs:
   container-test-job:
+    runs-on: ubuntu-latest
     env:
       image_env: ''
-    runs-on: ubuntu-latest
     container:
       image: ubuntu
     services:
       test:
-        image: ${{ env.image_env }}
+        image: $image_env
     steps:
       - name: Command
         run: |
