@@ -5,7 +5,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: node:18
+      image: null
     steps:
       - name: Command
         run: |
