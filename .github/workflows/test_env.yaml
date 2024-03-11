@@ -5,8 +5,10 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      if: true == true
       image: ubuntu
+    services:
+      test:
+        image: ubuntu 
     steps:
       - name: Command
         run: |
