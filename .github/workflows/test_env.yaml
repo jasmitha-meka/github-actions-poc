@@ -10,6 +10,6 @@ jobs:
       - name: Command
         run: |
          pwd
-         echo $GHA_PATH
+         echo ${{ github.workspace }}
          echo 1234
 
