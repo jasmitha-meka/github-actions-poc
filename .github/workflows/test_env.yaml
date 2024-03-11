@@ -5,7 +5,8 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: null
+      if: true == true
+      image: ubuntu
     steps:
       - name: Command
         run: |
