@@ -1,0 +1,48 @@
+name: Caching
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    container:
+      image: maven
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Cache local Maven repository
+      uses: actions/cache@v4
+      with:
+        path: /root/.m2/
+        key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+
+#    - name: maven version
+#      run: mvn help:evaluate -Dexpression=settings.localRepository
+
+    - name: maven compile
+      run: mvn compile
+
+  install:
+    runs-on: ubuntu-latest
+    needs: [build]
+    container:
+      image: maven    
+    steps: 
+    - uses: actions/checkout@v3
+
+    - name: Cache local Maven repository
+      uses: actions/cache@v4
+      with:
+        path: /root/.m2/
+        key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+
+    - name: maven install
+      run: mvn install
