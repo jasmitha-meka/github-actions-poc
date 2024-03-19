@@ -12,4 +12,7 @@ jobs:
       - name: branch 
         run: |
            git branch
-
+           touch 123
+           git add .
+           git commit -m "add 123"
+           git push --set-upstream origin ${{ env.GIT_BRANCH }}
