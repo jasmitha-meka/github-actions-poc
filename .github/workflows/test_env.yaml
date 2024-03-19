@@ -4,17 +4,9 @@ on: push
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
-    env:
-      image_env: ''
-    container:
-      image: ubuntu
-    services:
-      test:
-        image: $image_env
     steps:
-      - name: Command
+      - uses: actions/checkout@v4  
+      - name: branch 
         run: |
-         pwd
-         echo ${{ github.workspace }}
-         echo 1234
+           git branch
 
