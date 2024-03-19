@@ -1,6 +1,7 @@
 name: Redis container example
 on: push
-
+    pull_request:
+       types: [opened, synchronize, reopened]
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
