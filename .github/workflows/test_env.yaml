@@ -1,18 +1,11 @@
 name: Redis container example
 on: 
-  pull_request:
-     types: [opened, synchronize, reopened]
+  push:
+    tags:
+      - v1.**
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  
-        with:
-           fetch-depth: 0
-      - name: branch 
-        run: |
-           git branch
-           touch 123
-           git add .
-           git commit -m "add 123"
-           git push --set-upstream origin ${{ env.GIT_BRANCH }}
+      - name: test
+        run: echo "hellooo"
