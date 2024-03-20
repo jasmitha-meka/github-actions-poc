@@ -1,12 +1,11 @@
 name: Redis container example
-on: push
-
+on: 
+  push:
+    tags:
+      - v1.**
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  
-      - name: branch 
-        run: |
-           git branch
-
+      - name: test
+        run: echo "hellooo"
