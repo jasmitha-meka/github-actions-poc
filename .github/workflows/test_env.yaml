@@ -10,11 +10,11 @@ jobs:
     steps:
       - name: test
         run: |
-            if [[ ${github.ref_name} =~ .*dev-usw2 ]]; then
+            if [[ ${{ github.ref_name }} =~ .*dev-usw2 ]]; then
               echo "dev-usw2"
-            elif [[ ${github.ref_name} =~ .*perf-usw2 ]]; then
+            elif [[ ${{ github.ref_name }} =~ .*perf-usw2 ]]; then
               echo "perf-usw2"
-            elif [[ ${github.ref_name} =~ .*perf-euc1 ]]; then
+            elif [[ ${{ github.ref_name }} =~ .*perf-euc1 ]]; then
               echo "perf-euc1"
             else
               echo "Tag is unset or empty. This will not be deployed to any environment."
