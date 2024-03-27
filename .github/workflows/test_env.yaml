@@ -1,8 +1,12 @@
 name: Redis container example
-on: 
+on:
   push:
     tags:
-      - v[0-9]+.[0-9]+.[0-9]+*
+      - v[0-9]+.[0-9]+.[0-9]+
+    branches:
+      - main
+  pull_request:
+      types: [opened, synchronize, reopened]
 
 jobs:
   container-test-job:
@@ -10,12 +14,4 @@ jobs:
     steps:
       - name: test
         run: |
-            if [[ ${{ github.ref_name }} =~ .*dev-usw2 ]]; then
-              echo "dev-usw2"
-            elif [[ ${{ github.ref_name }} =~ .*perf-usw2 ]]; then
-              echo "perf-usw2"
-            elif [[ ${{ github.ref_name }} =~ .*perf-euc1 ]]; then
-              echo "perf-euc1"
-            else
-              echo "Tag is unset or empty. This will not be deployed to any environment."
-            fi
+            echo "123"
