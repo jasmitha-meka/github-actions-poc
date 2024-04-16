@@ -1,6 +1,6 @@
 name: Workflow
 on:
-  workflow_call:
+  workflow_dispatch
     inputs:
       parameters:
         description: 'Parameters for the workflow'
