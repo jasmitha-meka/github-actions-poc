@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy using Terraform
+      - name: test
         run: |
-           echo ${{ fromJson(github.event.inputs.parameters).project }} 
-           echo ${{ fromJson(github.event.inputs.parameters).organization_name }} 
+           echo ${{ inputs.parameters }}   
+           #echo ${{ fromJson(github.event.inputs.parameters).project }} 
