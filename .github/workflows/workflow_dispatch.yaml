@@ -13,5 +13,5 @@ jobs:
     steps:
       - name: test
         run: |
-           echo "${{ inputs.parameters }}"
+           echo "${{ inputs.parameters }}.a"
        #echo ${{ fromJson(github.event.inputs.parameters).project }}
