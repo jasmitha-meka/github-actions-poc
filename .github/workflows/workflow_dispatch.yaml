@@ -13,5 +13,18 @@ jobs:
     steps:
       - name: test
         run: |
-           echo "${{ fromJson(inputs.parameters).a }}"
+           echo "${{ fromJson(inputs.parameters).a1 }}"
+           echo "${{ fromJson(inputs.parameters).a2 }}"
+           echo "${{ fromJson(inputs.parameters).a3 }}"
+           echo "${{ fromJson(inputs.parameters).a4 }}"
+           echo "${{ fromJson(inputs.parameters).a5 }}"
+           echo "${{ fromJson(inputs.parameters).a6 }}"
+           echo "${{ fromJson(inputs.parameters).a7 }}"
+           echo "${{ fromJson(inputs.parameters).a8 }}"
+           echo "${{ fromJson(inputs.parameters).a9 }}"
+           echo "${{ fromJson(inputs.parameters).a10 }}"
+           echo "${{ fromJson(inputs.parameters).a11 }}"
+           echo "${{ fromJson(inputs.parameters).a12 }}"
+           echo "${{ fromJson(inputs.parameters).a13 }}"
+           echo "${{ fromJson(inputs.parameters).a14 }}"
        #echo ${{ fromJson(github.event.inputs.parameters).project }}
