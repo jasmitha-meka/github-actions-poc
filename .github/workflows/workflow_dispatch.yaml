@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: test
         run: |
-           echo "${{ inputs.parameters }}"
            keys=$(echo "${{ inputs.parameters }}" | jq -r 'keys_unsorted[]')
+           echo $keys
            keyVal_collection=""
            for key in $keys; do
               value=$(echo "$json_data" | jq -r ".$key")
