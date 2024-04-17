@@ -17,7 +17,7 @@ jobs:
            echo $keys
            keyVal_collection=""
            for key in $keys; do
-              value=$(echo "$json_data" | jq -r ".$key")
+              value=$(echo '${{ inputs.parameters }}' | jq -r ".$key")
               keyVal_collection+="$key:$value\n"
               echo "$key:$value\n"
            done
