@@ -15,11 +15,9 @@ jobs:
         run: |
            keys=$(echo '${{ inputs.parameters }}' | jq -r 'keys_unsorted[]')
            echo $keys
-           keyVal_collection=""
            for key in $keys; do
               value=$(echo '${{ inputs.parameters }}' | jq -r ".$key")
-              keyVal_collection+="$key:$value\n"
-              echo "${name}=${value}" >> "${GITHUB_ENV}"
+              echo "${key}=${value}" >> "${GITHUB_ENV}"
            done
 
            echo $a1  
