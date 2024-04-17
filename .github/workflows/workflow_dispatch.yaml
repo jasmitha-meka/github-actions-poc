@@ -19,9 +19,10 @@ jobs:
            for key in $keys; do
               value=$(echo '${{ inputs.parameters }}' | jq -r ".$key")
               keyVal_collection+="$key:$value\n"
-              echo "$key:$value\n"
+              echo "${name}=${value}" >> "${GITHUB_ENV}"
            done
 
+           echo $a1  
        # echo "${{ fromJson(inputs.parameters).a1 }}"
        # echo "${{ fromJson(inputs.parameters).a2 }}"
        # echo "${{ fromJson(inputs.parameters).a3 }}"
