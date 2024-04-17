@@ -22,8 +22,8 @@ jobs:
            done
       - name: print
         run: |
-           echo "$action_state"
            echo $a1
+           echo $a2
        # echo "${{ fromJson(inputs.parameters).a1 }}"
        # echo "${{ fromJson(inputs.parameters).a2 }}"
        # echo "${{ fromJson(inputs.parameters).a3 }}"
