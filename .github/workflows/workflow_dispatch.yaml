@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: test
         run: |
-           echo "${{ fromJson(inputs.parameters) }}" | jq -r 'keys_unsorted'
+           echo '${{ inputs.parameters }}' 
 
        # echo "${{ fromJson(inputs.parameters).a1 }}"
        # echo "${{ fromJson(inputs.parameters).a2 }}"
