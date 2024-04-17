@@ -20,8 +20,8 @@ jobs:
               echo "${key}=${value}"
               echo "${key}=${value}" >> "${GITHUB_ENV}"
            done
-
-           echo "$a1"  
+           echo "action_state=yellow" >> "$GITHUB_ENV"
+           echo "$action_state"  
        # echo "${{ fromJson(inputs.parameters).a1 }}"
        # echo "${{ fromJson(inputs.parameters).a2 }}"
        # echo "${{ fromJson(inputs.parameters).a3 }}"
