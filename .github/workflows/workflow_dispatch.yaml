@@ -14,6 +14,13 @@ jobs:
       - name: test
         run: |
            echo "${{ inputs.parameters }}"
+           keys=$(echo "${{ inputs.parameters }}" | jq -r 'keys_unsorted[]')
+           keyVal_collection=""
+           for key in $keys; do
+              value=$(echo "$json_data" | jq -r ".$key")
+              keyVal_collection+="$key:$value\n"
+              echo "$key:$value\n"
+           done
        # echo "${{ fromJson(inputs.parameters).a1 }}"
        # echo "${{ fromJson(inputs.parameters).a2 }}"
        # echo "${{ fromJson(inputs.parameters).a3 }}"
