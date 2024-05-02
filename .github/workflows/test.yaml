@@ -1,6 +1,9 @@
 name: upload-artifact-actions
 run-name: Uploading artifacts Actions
 on:
+  push:
+    branches:
+      - main
   pull_request:
       types: [opened, synchronize, reopened]
 jobs:
