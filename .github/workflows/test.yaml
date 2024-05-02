@@ -1,0 +1,13 @@
+name: upload-artifact-actions
+run-name: Uploading artifacts Actions
+on:
+  pull_request:
+      types: [opened, synchronize, reopened]
+jobs:
+  upload-job:
+    name: Save output
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+           echo ${{ github.ref_name }}
