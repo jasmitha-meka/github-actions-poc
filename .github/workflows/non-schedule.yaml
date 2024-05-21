@@ -16,6 +16,6 @@ jobs:
            echo "${{ github.actor }}"
            echo "${{ github.event.schedule }}"
        - name: schedule time
-         if: github.event.schedule != ''
+         if: github.event.schedule == ''
          run: |
            echo "works"
