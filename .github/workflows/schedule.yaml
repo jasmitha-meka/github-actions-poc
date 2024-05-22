@@ -12,6 +12,7 @@ jobs:
            echo "${{ github.triggering_actor }}"
            echo "${{ github.actor }}"
            echo "${{ github.event.schedule }}"
+           echo "${{ github.event_name }}"           
        - name: schedule time
          if: github.event.schedule == ''
          run: |
